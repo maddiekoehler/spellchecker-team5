@@ -1,3 +1,28 @@
+import re
+from collections import Counter
+
+def words(text): return re.findall(r'\w+', text.lower())
+
+WORDS = Counter(words(open('big.txt').read()))
+
+#probability - divide how many times that word occurs by how many words total
+def most_common(word, N=sum(WORDS.values())):
+	return WORDS[word]/N
+
+#we only want words that are real
+def known(words):
+	s = set(w for w in words if w in WORDS)
+	x = list(s)
+	return x
+
+#possible replacements?
+def possibleWords(word):
+	return (known([word]) or known(oneEditDist(word)) or known(twoEditDist(word)) or [word])
+
+#choose which one to be the actual correction
+def correction(word):
+	return max(possibleWords(word), key=most_common)
+
 #create a list of all possible words that are one edit distance away
 def oneEditDist(word):
     letters    = 'abcdefghijklmnopqrstuvwxyz'
@@ -15,15 +40,5 @@ def twoEditDist(word):
             twoEdits.append(e2)
     return twoEdits
             
-
-def isRealWords(words):
-    realWordsList = open('big.txt').read()
-    realWords = []
-    for w in words:
-        if w in realWordsList:
-            realWords.append(w)
-    return realWords
-
-
-
-print(isRealWords(oneEditDist('cay')+twoEditDist('cay')))
+#print(known(oneEditDist('testt')+twoEditDist('testt')))
+print(known(oneEditDist('testt')))
