@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from editdistancespellcheck import known, oneEditDist
-
+from makeSuggestions import *
 
 app = Flask(__name__)
 
@@ -32,9 +32,16 @@ def home():
 @app.route('/', methods = ['POST'])
 def my_form_post():
 	text = request.form['text']
-	text = text.lower()
-	ans = known(oneEditDist(text))
-	return ans[0]
+	#text = text.lower()
+	#print(text)
+	#text = text.split(" ")
+	#newText = []
+	#for i in text:
+	#	ans = known(oneEditDist(i))
+	#	newText.append(ans[0])
+	#newText = " ".join(newText)
+	#return newText
+	return makeSuggestions(text)
 
 if __name__=='__main__':
 	app.run(debug=True, host='0.0.0.0', port=5000)
