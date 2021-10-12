@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+
+<form method="POST">
+    <input name="text">
+    <input type="submit">
+</form>
+
+
+
+
+<h1>
+<center>This is a spell checker</center>
+</h1>
+<h2>
+<center>Enter Your Text here</center>
+</h2>
+<br>
+<center>
+<input type ="text" >
+<br>
+<div>
+<center><button id="btn" Onclick="alert()">Check </button></center>
+     
+      <div id="output">
+	  </div>
+</div>
+	  
+    
+
+    <script type="text/javascript">
+	function alert(){
+	document.getElementById('output').innerHTML = document.getElementById('textInp').value;}
+	
+	</script>
+
+  </body>
+</html>
