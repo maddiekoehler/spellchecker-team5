@@ -32,15 +32,6 @@ def home():
 @app.route('/', methods = ['POST'])
 def my_form_post():
 	text = request.form['text']
-	#text = text.lower()
-	#print(text)
-	#text = text.split(" ")
-	#newText = []
-	#for i in text:
-	#	ans = known(oneEditDist(i))
-	#	newText.append(ans[0])
-	#newText = " ".join(newText)
-	#return newText
 	return makeSuggestions(text)
 
 if __name__=='__main__':
