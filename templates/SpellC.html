@@ -45,24 +45,31 @@ body
 </nav>
 <br><br><br><br>
 
+
             <div align="center">
 
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Language
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">English</a>
+                  <a class="dropdown-item" href="#">Hungary</a>
+                  <a class="dropdown-item" href="#">Other</a>
+                </div>
+              </div>
                 <br />
-                <textarea type="text" id="myInput" placeholder="Initiate here..." name="lname">
-</textarea>
-                <br />
+<!--                <textarea type="text" id="myInput" placeholder="Enter text here" name="lname">
+</textarea> -->
+		<br />
 		<form method="POST">
-    		    <input name="text">
-    		    <input type="submit">
+		    <input name="text">
+		    <input type="submit">
 		</form>
 
-                <br />
-                <button type="button" class="btn btn-outline-dark">Enter</button>
-                
-                
-                <br />
-                <br />
+		<br />
+		<br />
                 <button type="button" onclick="document.getElementById('myInput').value = ''" class="btn btn-outline-dark">Reset</button>
-               
+
 
             </div>
