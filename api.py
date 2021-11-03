@@ -1,38 +1,45 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session, flash, redirect
+from flask_session import Session
 from editdistancespellcheck import known, oneEditDist
 from makeSuggestions import *
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
-#def get_text(text):
-#	text = text.lower()
-#	return text
-
-@app.route('/')
-def home():
-	return render_template('SpellC.html')
-
-#@app.route('/join', methods=['GET', 'POST'])
-#def my_form_post():
-#	text = request.form['text']
-#	word = request.args.get('text')
-#	text = get_text(text)
-#	result = {
-#		"output": text
-#	}
-#	result = {str(key): value for key, value in result.items()}
-#	return jsonify(result=result)
-
-#@app.route('/', methods = ['POST'])
-#def my_form_post():
-#	text = request.form['text']
-#	processed_text = text.upper()
-#	return processed_text
-
-@app.route('/', methods = ['POST'])
+@app.route('/', methods = ['GET','POST'])
 def my_form_post():
-	text = request.form['text']
-	return makeSuggestions(text)
+	if request.method == "POST":
+		if request.form["submit_button"] == "submit":
+			session['text'] = request.form.get("text")
+			session['given_text'] = session['text']
+
+			#session['words'] = session['text'].split()
+			session['misspelled'] = []
+
+			bad = getMisspelled(session['text'])
+			for word in bad:
+				session['misspelled'].append(word)
+			session['suggestions'] = dict.fromkeys(session['misspelled'])
+			for key in session['suggestions']:
+				for i in range(len(makeSuggestions(key))):
+					session['suggestions'][key] = makeSuggestions(key)[i]
+			return render_template("/SpellC.html", text=session['given_text'], misspelled=session['misspelled'], suggestions=session['suggestions'])
+
+		if request.form["submit_button"] == "correct":
+			session['new_text'] = session['given_text']
+			for word in session['misspelled']:
+				session['new_text'] = session['new_text'].replace(word, request.form.get(word))
+			return render_template("/SpellC.html", text=session['given_text'], new_text=session['new_text'], misspelled=session['misspelled'], suggestions=session['suggestions'])			
+
+
+
+	else:
+		return render_template("/SpellC.html")
+
 
 if __name__=='__main__':
 	app.run(debug=True, host='0.0.0.0', port=5000)
+
+

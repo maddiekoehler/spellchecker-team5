@@ -33,11 +33,13 @@ def oneEditDist(word):
     inserts    = [L + c + R               for L, R in splits for c in letters]
     return (deletes + transposes + replaces + inserts)
 
-#def twoEditDist(word):
-#    twoEdits = []
-#    for e1 in oneEditDist(word):
-#        for e2 in oneEditDist(e1):
-#            twoEdits.append(e2)
-#    return twoEdits
+def twoEditDist(word):
+    twoEdits = []
+    for e1 in oneEditDist(word):
+        for e2 in oneEditDist(e1):
+            twoEdits.append(e2)
+    return twoEdits
             
+def getAllEdits(word):
+	return oneEditDist(word)+twoEditDist(word)
 

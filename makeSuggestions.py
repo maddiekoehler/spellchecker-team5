@@ -7,16 +7,20 @@ def makeSuggestions(text):
 	text = text.split(" ")
 	newText = []
 	for i in range(len(text)):
-		if WORDS[text[i]] == 0:
-			ans = known(oneEditDist(text[i]))
-			newText.insert(i, ans[0])
+		if text[i] not in known(text):
+			newText.append(sorted(possibleWords(text[i]), key=most_common, reverse=True))
+			return newText
 		else:
-			newText.insert(i, text[i])
-	newText = " ".join(newText)
-	return newText
-
-print(makeSuggestions("This is a test sentecne"))
+			return text[i]
 
 
 
-
+def getMisspelled(words):
+	wrong=[]
+	words = words.lower()
+	words = words.split(" ")
+	for word in words:
+		if word not in known(words):
+			wrong.append(word)
+	return wrong
+			
