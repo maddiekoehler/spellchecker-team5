@@ -1,0 +1,33 @@
+body {
+	background-color: #000;
+}
+html,
+body {
+	height: 100%;
+}
+
+.imagebg {
+	background-image: url(./Images/spell-check.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: fixed;
+	top: 10;
+	left: 10;
+	right: 10;
+	bottom: 10;
+    -webkit-filter: blur(3px);
+  filter: blur(3px);
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+
+}
+.form-container
+{
+	
+	background-color: rgb(155, 143, 143);
+    box-shadow: 0 16px 24px 2px rgba(173, 168, 168, 0.14), 0 20px 30px 5px rgba(211, 200, 200, 0.12), 0 8px 10px -5px rgba(204, 198, 198, 0.3);
+    border-radius: 20px;	
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Times New Roman', Times, serif;
+}

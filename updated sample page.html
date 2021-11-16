@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spell</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <center>Spell Checker!!</center>
+    </nav>
+
+    <div class="container">
+      <center><h2>Type Your Text Here</h2></center>
+      
+      <textarea
+        placeholder="Check your Spell"
+        id="textInp"
+      ></textarea>
+	  
+      <center><button id="btn" Onclick action="file:///D:/SLU/spellchecker-team5-main/sample%20webpage.html">Check </button></center>
+       
+      <p id="para">Text will appear here 👇</p>
+      <div id="output">
+	  
+	  </div>
+    </div>
+
+    <script type="text/javascript">
+	function alert(){
+	document.getElementById('output').innerHTML = document.getElementById('textInp').value;}
+	
+	</script>
+
+
+  </body>
+</html>
