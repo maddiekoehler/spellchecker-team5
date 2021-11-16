@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+        body {
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 style="text-align:center">Seiceálaí litrithe é seo</h1>
+<h2>
+<center>cuir tús le do théacs anseo</center>
+</h2>
+<br>
+<center>
+<br>
+<form  method="POST">
+					  <textarea  id="content" name = "takeinput"  size="+3" placeholder="" maxlength="6000" rows="5" style=" min-width:120px; max-width:100%;min-height:120px;height:100%;width:100%;"  ></textarea>
+<div>
+<br><br><br>
+<center><button id="btn" class="text" Onclick="alert()">Reset </button></center>
+<br>
+<br>
+<br>
+<center><input type = "submit" size="+4" value = "Spell Check"></center>
+     
+      <div id="output">
+	  </div>
+</div>
+<br><br><br>
+</form>
+	  
+    
+<form  method="POST">
+					  <textarea  id="content" name = "output"  size="+3" placeholder="" maxlength="6000" rows="5" style=" min-width:120px; max-width:100%;min-height:120px;height:100%;width:100%;"  ></textarea>
+
+
+</form>
+    <script type="text/javascript">
+	function alert(){
+	document.getElementById('output').innerHTML = document.getElementById('textInp').value;}
+	
+	</script>
+
+  </body>
+</html>
