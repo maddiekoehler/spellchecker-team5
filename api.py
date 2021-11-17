@@ -31,7 +31,7 @@ def my_form_post():
 			session['new_text'] = session['given_text']
 			for word in session['misspelled']:
 				session['new_text'] = session['new_text'].replace(word, request.form.get(word))
-			return render_template("/SpellC.html", text=session['given_text'], new_text=session['new_text'], misspelled=session['misspelled'], suggestions=session['suggestions'])			
+			return render_template("/SpellC.html", text=session['given_text'], new_text=session['new_text'], misspelled=session['misspelled'], suggestions=session['suggestions'])
 
 
 

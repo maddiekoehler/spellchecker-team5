@@ -1,5 +1,6 @@
 import re
 from collections import Counter
+from ngram import *
 
 def words(text): return re.findall(r'\w+', text.lower())
 
@@ -8,6 +9,11 @@ WORDS = Counter(words(open('big.txt').read()))
 #probability - divide how many times that word occurs by how many words total
 def most_common(word, N=sum(WORDS.values())):
 	return WORDS[word]/N
+
+def ngram_prob(words):
+	w = words[0]
+	word = words[1]
+	return (languagemodel(w,word)*error(word))
 
 #we only want words that are real
 def known(words):
