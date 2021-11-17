@@ -54,11 +54,15 @@ def splitSentence(text):
 	for w in wrongWords:
 		for i in range(len(text)):
 			if w == text[i]:
-				lastTwo = " ".join(text[i-2:i])
+				#lastOne = " ".join(text[i-1:i])
+				#nextOne = " ".join(text[i:i+1])
+				lastOne = text[i-1]
+				nextOne = text[i+1]
+				context = (lastOne, nextOne)
 				target = text[i]
 				#tuplist.append((lastTwo, target))
 	#return tuplist
-	return(lastTwo, target)
+	return(context, target)
 
 #print(splitSentence('this is a test sentecne'))
 #print(getMisspelled('this is a test sentecne'))
@@ -66,6 +70,6 @@ def splitSentence(text):
 #print(ngram_prob(splitSentence('this is a test sentecne')))
 #print(languagemodel(splitSentence('this is a test sentence')[0]))
 #print(newSuggest('a big mna'))
-#print(splitSentence('this is wrnog and so is tihs'))
+print(splitSentence('this is wrnog and so is this'))
 #print(newSuggest('this is wrnog and so is tihs'))
 #print(pickOne('this is wrnog and so is tihs'))
