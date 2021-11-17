@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 style="text-align:left">Seiceálaí litrithe é seo</h1>
+<h2>
+<center>cuir tús le do théacs anseo</center>
+</h2>
+<br>
+<center>
+<br>
+<form  method="POST">
+					  <textarea  id="content" name = "takeinput" style=" min-width:120px; max-width:100%;min-height:120px;height:100%;width:100%;" ></textarea>
+<div>
+<center><button id="btn" Onclick="alert()">Reset </button></center>
+<br>
+<center><input type = "submit" value = "Spell Check"></center>
+     
+      <div id="output">
+	  </div>
+</div>
+</form>
+	  
+    
+
+    <script type="text/javascript">
+	function alert(){
+	document.getElementById('output').innerHTML = document.getElementById('textInp').value;}
+	
+	</script>
+
+  </body>
+</html>
