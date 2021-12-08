@@ -40,13 +40,26 @@ body
 <nav class="navbar">
   <div id="main">
   <span style="font-size:30px;cursor:pointer"</span>
-<a class="navbar-brand"  href="#" style="color:rgb(226, 15, 15)" >
-    SpellChecker
-  </a>
+    <a class="navbar-brand"  href="#" style="color:rgb(226, 15, 15)" >
+        SpellChecker
+    </a>
 
  </div>
 </nav>
 <br><br><br><br>
+
+    <form name="startpage" method="POST" action="/lang">
+    <div class="form-group">
+        <div class="input-group">
+            <select name = "ui_language" id = "ui_language"> 
+                <option value="English">English</option>
+                <option value="Irish">Irish</option>
+            </select>
+        </div>
+        <button type="submit" name="submit" value="success" class="btn btn-default">Submit</button>
+    </div>
+    </form>
+
 
     <script src="scripts/wordcorrectin.js"></script>
     <script src="scripts/Misspelled Word.js"></script>
@@ -57,18 +70,17 @@ body
 
             <div align="center">
 
-              <div class="dropdown">
+<!--              <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Select Language
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#">English</a>
                   <a class="dropdown-item" href="#">Irish</a>
-                  <a class="dropdown-item" href="#">Other</a>
                 </div>
               </div>
                 <br />
-
+-->
 <!--Maddie's part: -->
 	<div class="container">
 		<form action="/" method="POST">
