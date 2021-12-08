@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+<style>
+
+body
+.navbar {
+  overflow: hidden;
+  background-color: #ddeeee;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+    textarea[type=text] {
+        width: 50%;
+        height:10%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid black ;
+        border-radius: 4px;
+    }
+
+</style>
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0$
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4Yf$
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5K$
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYo$
+</head>
+
+<body>
+
+
+<nav class="navbar">
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer"</span>
+    <a class="navbar-brand"  href="#" style="color:rgb(226, 15, 15)" >
+        Seiceálaí Litrithe
+    </a>
+
+ </div>
+</nav>
+<br><br><br><br>
+
+    <form name="startpage" method="POST" action="/lang">
+    <div class="form-group">
+        <div class="input-group">
+            <select name = "ui_language" id = "ui_language">
+                <option value="English">Béarla</option>
+                <option value="Irish">Gaeilge</option>
+            </select>
+        </div>
+        <button type="submit" name="submit" value="success" class="btn btn-default">cuir isteach</button>
+    </div>
+    </form>
+
+
+    <script src="scripts/wordcorrectin.js"></script>
+    <script src="scripts/Misspelled Word.js"></script>
+    <script src="scripts/incorrect words.js"></script>
+    <script src="scripts/rightclick.js"></script>
+    <script src="scripts/SetCursor.js"></script>
+
+
+            <div align="center">
+
+
+        <div class="container">
+                <form action="/" method="POST">
+                        <div class="form-group">
+                                <label for="usr">Iontráil téacs anseo:</label>
+                                <input name="text" type="text" class="form-control" id="usr" value="{{text}}">
+                        </div>
+                        <div class="output_class">
+                                {% for word in misspelled %}
+                                <select name="{{word}}">
+                                        <option value="" disabled selected>{{word}}</option>
+                                        {% for key in suggestions[word] %}
+                                        <option value={{key}}>{{key}}</option>
+                                        {% endfor %}
+                                </select>
+                                {% endfor %}
+                        </div>
+
+                        <div class="ouput_class">
+                                <p>téacs ceartaithe: {{new_text}}</p>
+                        </div>
+                        <button type="submit" name="submit_button" class="btn btn-primary btn-lg" value="submit">cuir isteach<</button>
+                        <button type="submit" name="submit_button" class="btn btn-success btn-lg" value="correct">Ceart</button>
+                </form>
+        </div>
+</body>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+<style>
+
+body
+.navbar {
+  overflow: hidden;
+  background-color: #ddeeee;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+    textarea[type=text] {
+        width: 50%;
+        height:10%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid black ;
+        border-radius: 4px;
+    }
+
+</style>
+
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+<nav class="navbar">
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer"</span>
+    <a class="navbar-brand"  href="#" style="color:rgb(226, 15, 15)" >
+        SpellChecker
+    </a>
+
+ </div>
+</nav>
+<br><br><br><br>
+
+    <form name="startpage" method="POST" action="/lang">
+    <div class="form-group">
+        <div class="input-group">
+            <select name = "ui_language" id = "ui_language"> 
+                <option value="English">English</option>
+                <option value="Irish">Irish</option>
+            </select>
+        </div>
+        <button type="submit" name="submit" value="success" class="btn btn-default">Submit</button>
+    </div>
+    </form>
+
+
+    <script src="scripts/wordcorrectin.js"></script>
+    <script src="scripts/Misspelled Word.js"></script>
+    <script src="scripts/incorrect words.js"></script>
+    <script src="scripts/rightclick.js"></script>
+    <script src="scripts/SetCursor.js"></script>
+
+
+            <div align="center">
+
+<!--              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Language
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">English</a>
+                  <a class="dropdown-item" href="#">Irish</a>
+                </div>
+              </div>
+                <br />
+-->
+<!--Maddie's part: -->
+	<div class="container">
+		<form action="/" method="POST">
+                        <div class="form-group">
+                                <label for="usr">Enter text here:</label>
+                                <input name="text" type="text" class="form-control" id="usr" value="{{text}}">
+                        </div>
+                        <div class="output_class">
+                                {% for word in misspelled %}
+                                <select name="{{word}}">
+                                        <option value="" disabled selected>{{word}}</option>
+                                        {% for key in suggestions[word] %}
+                                        <option value={{key}}>{{key}}</option>
+                                        {% endfor %}
+                                </select>
+                                {% endfor %}
+                        </div>
+
+                        <div class="ouput_class">
+                                <p>corrected text: {{new_text}}</p>
+                        </div>
+                        <button type="submit" name="submit_button" class="btn btn-primary btn-lg" value="submit">Submit</button>
+                        <button type="submit" name="submit_button" class="btn btn-success btn-lg" value="correct">Correct</button>
+                </form>
+        </div>
+</body>
